@@ -8,7 +8,11 @@ from .models import *
 from django.views.generic import ListView
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from django.core.mail import send_mail
 
+
+def home(request):
+    return render(request,'users/home.html')
 
 
 # Create your views here.
@@ -97,3 +101,5 @@ class EmployeeListView(ListView):
     model=Student
     context_object_name='students'
     template_name='users/employeeList.html'
+
+    
