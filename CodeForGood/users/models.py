@@ -6,7 +6,7 @@ class Profile(models.Model):
     firstname=models.CharField(max_length=10,default='First name')
     lastname=models.CharField(max_length=10,default='Last name')
     usertype=models.CharField(max_length=10,default='admin')
-    phone_number=models.CharField(max_length=10,null=False, blank=False, unique=True)
+    phone_number=models.CharField(max_length=10,null=False, blank=False)
     def __str__(self):
         return f'{self.user.username} Profile'
 
