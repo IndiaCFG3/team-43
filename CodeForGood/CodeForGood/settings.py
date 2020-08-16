@@ -123,8 +123,7 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK='bootstrap4'
 LOGIN_URL='login'
 LOGIN_REDIRECT_URL='dashboard'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'')
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
