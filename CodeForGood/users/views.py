@@ -86,8 +86,6 @@ class StudentListView(ListView):
     context_object_name='students'
     template_name='users/studentList.html'
 
-def home(request):
-    return render(request, 'users/barchart.html')
 
 def score_chart(request):
     labels = []
