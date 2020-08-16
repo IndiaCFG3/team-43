@@ -15,6 +15,8 @@ urlpatterns = [
     path('dashboard/',user_views.dashboard,name='dashboard'),
     path('test/',user_views.test_view,name='test'),
     path('studentList/',user_views.StudentListView.as_view(),name='student-list'),
+    path('upload/',user_views.drag_drop,name='upload'),
 
 
 ]
+

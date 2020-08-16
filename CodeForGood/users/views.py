@@ -6,6 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
 from .models import *
 from django.views.generic import ListView
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
 
 
 # Create your views here.
@@ -82,3 +85,13 @@ class StudentListView(ListView):
     model=Student
     context_object_name='students'
     template_name='users/studentList.html'
+
+def drag_drop(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'users/upload.html', {'uploaded_file_url': uploaded_file_url,"fileupload":"File uploaded successfully"})
+    if request.method == 'GET':
+        return render(request, 'users/upload.html')
