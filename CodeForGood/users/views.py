@@ -21,11 +21,11 @@ def dashboard(request):
     # if request.user.Profile.usertype == 'admin':
     #     # do database operations and create context
     #     return render(request,"users/dashboard.html", {message:"You're admin"})
-    if request.user.Profile.usertype == 'audit':
+    if request.user.profile.usertype == 'audit':
         output = Student_Display()
         # do database operations and create context
         return render(request,"users/dashboard.html", {'output':output})
-    if request.user.Profile.usertype == 'HR':
+    if request.user.profile.usertype == 'HR':
         output = Employee_Display()
         # do database operations and create context
         return render(request,"users/dashboard.html", {'output':output})
