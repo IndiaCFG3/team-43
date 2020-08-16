@@ -11,7 +11,7 @@
 
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
 
-    <title>Fellowship of Coders</title>
+    <title>Upload</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -28,7 +28,7 @@
       href="node_modules/bootstrap-social/bootstrap-social.css"
     />
 
-    <link rel = "stylesheet" type="text/css" href = "style.css">
+    <link rel = "stylesheet" type="text/css" href = "dragdrop.css">
 
   </head>
 
@@ -52,17 +52,17 @@
           />&nbsp;&nbsp;
       </a>
 
-          <div class="collapse navbar-collapse" id="Navbar">
-            <ul class="navbar-nav mr-auto" id="ulist">
-              <li class="nav-item active">
-                <a class="nav-link" href="#"
+      <div class="collapse navbar-collapse" id="Navbar">
+          <ul class="navbar-nav mr-auto" id="ulist">
+
+              <li class="nav-item">
+                <a class="nav-link" href="index.html"
                   ><span class="fa fa-home fa-2x"></span> &nbsp;
                   <p class="Inline">&nbsp;HOME</p>
                 </a>
               </li>
-            
               <li class="nav-item">
-                  <a class="nav-link" href="upload.html"
+                  <a class="nav-link active" href="#"
                       ><span class="fa fa-file fa-2x"></span> &nbsp;
                       <p class="Inline">&nbsp;SHARE FILES</p>
                   </a>
@@ -108,7 +108,21 @@
       </div>
   </nav>
 
-    
+  <form action = "" method = "">
+  <div class = "row row-content align-items-center">
+      <div class = "col-12 col-sm-4 offset-md-5"  style = "padding-top: 100px;">
+        <div class="drop-zone">
+          <span class="drop-zone__prompt" style="color:blue">Drop file here or click to upload</span>
+          <input type="file" name="myFile" class="drop-zone__input">
+        </div>
+      </div>
+        <div class = "col-12 col-sm-2 offset-md-5" style = "padding-top: 15px; padding-left: 80px;">
+          <button class = "btn btn-primary">Submit </button>
+        </div>
+  </div>
+  </form>
+
+  
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js" defer></script>
@@ -120,6 +134,7 @@
       defer
     ></script>
 
+    <script src = "upload.js"></script>
   </body>
 
 </html>
