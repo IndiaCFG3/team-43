@@ -28,3 +28,11 @@ class Employee(models.Model):
     leaves_taken = models.IntegerField()
     rating = models.IntegerField()
 
+from django.forms import ModelForm
+
+class Student_Display(ModelForm):  
+    class Meta:  
+        model = Student
+class Employee_Display(ModelForm):  
+    class Meta:  
+        model = Employee  
