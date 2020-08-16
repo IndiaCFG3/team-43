@@ -7,6 +7,8 @@ class Profile(models.Model):
     lastname=models.CharField(max_length=10,default='Last name')
     usertype=models.CharField(max_length=10,default='admin')
     phone_number=models.CharField(max_length=10,null=False, blank=False, unique=True)
+    def __str__(self):
+        return f'{self.user.username} Profile'
 
 class Student(models.Model):
     student_id = models.CharField(max_length = 10)
@@ -18,6 +20,7 @@ class Student(models.Model):
 class BatchStudent(models.Model):
     # student_id = models.OneToOneField(Student, on_delete= models.CASCADE)
     student_id = models.IntegerField()
+
     batch_id =  models.CharField(max_length = 10)
 
 class Employee(models.Model):
@@ -27,3 +30,13 @@ class Employee(models.Model):
     leaves_taken = models.IntegerField()
     rating = models.IntegerField()
 
+from django.forms import ModelForm
+
+class Student_Display(ModelForm):  
+    class Meta:  
+        model = Student
+        exclude = ['id']
+class Employee_Display(ModelForm):  
+    class Meta:  
+        model = Employee
+        exclude = ['id']  

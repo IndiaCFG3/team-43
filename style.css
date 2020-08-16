@@ -1,0 +1,33 @@
+.navbar-dark {
+    background-color:darkblue;
+}
+
+.navbar-nav > li {
+    padding: 0 25px 0 25px;
+}
+
+.Inline {
+    display: inline;
+    font-size: 20px;
+}
+
+.row-header {
+    margin: 0px auto;
+    padding: 0px auto;
+}
+
+.row-content {
+    margin: 0px;
+    padding: 50px 0px 75px 0px;
+    border-bottom: 1px ridge;
+    /* min-height: 400px; */
+}
+
+
+body{
+    padding: 50px 0px 0px 0px;
+    z-index: 0;
+    background-image: radial-gradient(circle,lightgreen,yellow);
+}
+
+
