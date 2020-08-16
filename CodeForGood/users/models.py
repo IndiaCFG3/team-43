@@ -12,10 +12,11 @@ class Profile(models.Model):
 
 class Student(models.Model):
     student_id = models.CharField(max_length = 10)
-    # student_name = models.TextField()
+    student_name = models.TextField(default='Null')
     score = models.IntegerField()
     rating = models.IntegerField()
     performance = models.TextField()
+    email = models.CharField(max_length= 400, default='Null')
 
 class BatchStudent(models.Model):
     # student_id = models.OneToOneField(Student, on_delete= models.CASCADE)

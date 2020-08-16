@@ -17,7 +17,7 @@ urlpatterns = [
     path('studentList/',user_views.StudentListView.as_view(),name='student-list'),
     path('score-chart/', user_views.home, name='score-chart'),
     path('pie-chart/', user_views.pie_chart, name='pie-chart'),
-
+    path('email', user_views.email_sender, name='email'),
     path('upload/',user_views.drag_drop,name='upload'),
     path('employeeList/',user_views.EmployeeListView.as_view(),name='employee-list'),
 

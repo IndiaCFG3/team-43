@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .csv_to_db import db_save
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, BadHeaderError
 from .models import Student,Employee,BatchStudent
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
@@ -9,8 +9,7 @@ from django.views.generic import ListView
 from django.shortcuts import render
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-
-
+from django.core.mail import send_mail
 
 # Create your views here.
 def test_view(request):
@@ -22,8 +21,6 @@ def test_view(request):
     return HttpResponse(html)
 
 # Create your views here.
-
-
 
 
 @login_required
@@ -93,9 +90,10 @@ def score_chart(request):
 
     queryset = Student.objects.all()
     for entry in queryset:
-        labels.append(entry.student_id)
+        labels.append(entry.student_name)
         data.append(entry.score)
-    # return render(request,'users/barchart.html',context={'labels': labels, 'data': data}) 
+
+	# print(labels)
     return JsonResponse(data={
         'labels': labels,
         'data': data,
@@ -133,3 +131,19 @@ class EmployeeListView(ListView):
     model=Student
     context_object_name='students'
     template_name='users/employeeList.html'
+
+def email_sender(request):
+	try:
+		flag = send_mail(
+			subject='Your PDF!',
+			message='Here is the message.',
+			from_email= '',
+			recipient_list=['sarika.s2407@gmail.com'],
+			fail_silently=False,
+			auth_password=''
+		)
+		print(flag)
+	except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+    
+	return HttpResponseRedirect('/dashboard')
