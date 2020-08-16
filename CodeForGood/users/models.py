@@ -17,7 +17,7 @@ class Student(models.Model):
 
 class BatchStudent(models.Model):
     student_id = models.OneToOneField(Student)
-    batch_id models.CharField()
+    batch_id =  models.CharField(max_length = 10)
 
 class Employee(models.Model):
     employee_id = models.CharField(max_length = 10)
