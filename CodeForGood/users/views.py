@@ -6,13 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
 from .models import *
 from django.views.generic import ListView
-<<<<<<< HEAD
 from django.shortcuts import render
-=======
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
->>>>>>> e7489594efc74061578b5bddc660d1862fc0bc85
 
 
 # Create your views here.

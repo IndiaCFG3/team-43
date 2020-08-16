@@ -22,7 +22,5 @@ urlpatterns = [
     path('employeeList/',user_views.EmployeeListView.as_view(),name='employee-list'),
 
 
-
->>>>>>> e7489594efc74061578b5bddc660d1862fc0bc85
 ]
 
