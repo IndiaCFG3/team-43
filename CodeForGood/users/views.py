@@ -31,13 +31,11 @@ def dashboard(request):
         'students':Student.objects.all()
     }
     if request.user.profile.usertype == 'admin':
-        output = Student_Display()
         # do database operations and create context
-        return render(request,"users/dashboard.html", {'output':output})
+        return redirect('/studentList')
     if request.user.profile.usertype == 'HR':
-        output = Employee_Display()
         # do database operations and create context
-        return render(request,"users/dashboard.html", {'output':output})
+        return render('/employeeList')
     
 from django.shortcuts import render,redirect
 from django.contrib import messages
@@ -77,8 +75,13 @@ def profile(request):
 	}
 	return render(request,'users/profile.html',context)    
 
-
 class StudentListView(ListView):
     model=Student
     context_object_name='students'
     template_name='users/studentList.html'
+
+
+class EmployeeListView(ListView):
+    model=Student
+    context_object_name='students'
+    template_name='users/employeeList.html'
