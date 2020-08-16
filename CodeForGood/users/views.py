@@ -34,13 +34,11 @@ def dashboard(request):
         'students':Student.objects.all()
     }
     if request.user.profile.usertype == 'admin':
-        output = Student_Display()
         # do database operations and create context
-        return render(request,"users/dashboard.html", {'output':output})
+        return redirect('/studentList')
     if request.user.profile.usertype == 'HR':
-        output = Employee_Display()
         # do database operations and create context
-        return render(request,"users/dashboard.html", {'output':output})
+        return render('/employeeList')
     
 from django.shortcuts import render,redirect
 from django.contrib import messages
@@ -80,7 +78,6 @@ def profile(request):
 	}
 	return render(request,'users/profile.html',context)    
 
-
 class StudentListView(ListView):
     model=Student
     context_object_name='students'
@@ -95,3 +92,8 @@ def drag_drop(request):
         return render(request, 'users/upload.html', {'uploaded_file_url': uploaded_file_url,"fileupload":"File uploaded successfully"})
     if request.method == 'GET':
         return render(request, 'users/upload.html')
+
+class EmployeeListView(ListView):
+    model=Student
+    context_object_name='students'
+    template_name='users/employeeList.html'

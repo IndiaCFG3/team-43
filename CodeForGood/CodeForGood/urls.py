@@ -15,7 +15,12 @@ urlpatterns = [
     path('dashboard/',user_views.dashboard,name='dashboard'),
     path('test/',user_views.test_view,name='test'),
     path('studentList/',user_views.StudentListView.as_view(),name='student-list'),
+<<<<<<< HEAD
     path('upload/',user_views.drag_drop,name='upload'),
+=======
+    path('employeeList/',user_views.EmployeeListView.as_view(),name='employee-list'),
+
+>>>>>>> a726bbe013530492799dbb78a8f042e9a3f75e9a
 
 
 ]

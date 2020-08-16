@@ -1,0 +1,24 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <h2>Employee</h2>
+    <table class = "table table-striped">
+        <thead class="table-head">
+            <td>Employee Id</td>
+            <td>Manager Name</td>
+            <td>Leaves Taken</td>
+            <td>Rating</td>
+        </thead>
+        {% for employee in employees %}
+        <tr>
+            <!-- <td>{{student.id}}</td> -->
+            <td>{{employee.employee_id}}</td>
+            <td>{{employee.manager_name}}</td>
+            <td>{{employee.leaves_taken}}</td>
+            <td>{{employee.rating}}</td>
+
+        </tr>
+            
+        {% endfor %}
+    </table>
+    
+{% endblock content %}
