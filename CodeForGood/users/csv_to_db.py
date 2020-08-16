@@ -3,7 +3,7 @@ from .models import Student,Employee,BatchStudent
 
 
 def db_save():
-    tmp_data=pd.read_csv('../../media/student.csv',sep=',')
+    tmp_data=pd.read_csv('student.csv',sep=',')
     #ensure fields are named~ID,Product_ID,Name,Ratio,Description
     #concatenate name and Product_id to make a new field a la Dr.Dee's answer
     students = [
@@ -19,7 +19,7 @@ def db_save():
     ]
     Student.objects.bulk_create(students)
 
-    tmp_data=pd.read_csv('../../media/employee.csv',sep=',')
+    tmp_data=pd.read_csv('employee.csv',sep=',')
     employees = [
         Employee(
             employee_id =row.id,
@@ -32,7 +32,7 @@ def db_save():
     ]
     Employee.objects.bulk_create(employees)
 
-    tmp_data=pd.read_csv('../../media/student_batch.csv',sep=',')
+    tmp_data=pd.read_csv('student_batch.csv',sep=',')
 
     batches = [
         BatchStudent(

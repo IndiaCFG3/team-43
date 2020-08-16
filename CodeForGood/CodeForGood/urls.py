@@ -21,6 +21,5 @@ urlpatterns = [
     path('employeeList/',user_views.EmployeeListView.as_view(),name='employee-list'),
     path('upload/',user_views.drag_drop,name='upload'),
     path('',user_views.home,name='home'),
-
-
+]
 
