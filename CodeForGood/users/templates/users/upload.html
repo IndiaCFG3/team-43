@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <form  method = "POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class = "row row-content align-items-center">
+      <div class = "col-12 col-sm-4 offset-md-5"  style = "padding-top: 100px;">
+        <div class="drop-zone">
+          <span class="drop-zone__prompt" style="color:blue">Drop file here or click to upload</span>
+          <input type="file" name="myfile" class="drop-zone__input">
+        </div>
+      </div>
+        <div class = "col-12 col-sm-2 offset-md-5" style = "padding-top: 15px; padding-left: 80px;">
+          <button class = "btn btn-primary" type="submit">Submit </button>
+        </div>
+  </div>
+  </form>
+    <script src="node_modules/jquery/dist/jquery.slim.min.js" defer></script>
+    
+    <script src="node_modules/popper.js/dist/umd/popper.min.js" defer></script>
+    
+    <script
+      src="node_modules/bootstrap/dist/js/bootstrap.min.js"
+      defer
+    ></script>
+    
+
+{% endblock content %}

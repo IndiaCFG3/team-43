@@ -6,7 +6,13 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
 from .models import *
 from django.views.generic import ListView
+<<<<<<< HEAD
 from django.shortcuts import render
+=======
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
+>>>>>>> e7489594efc74061578b5bddc660d1862fc0bc85
 
 
 # Create your views here.
@@ -32,13 +38,11 @@ def dashboard(request):
         'students':Student.objects.all()
     }
     if request.user.profile.usertype == 'admin':
-        output = Student_Display()
         # do database operations and create context
-        return render(request,"users/dashboard.html", {'output':output})
+        return redirect('/studentList')
     if request.user.profile.usertype == 'HR':
-        output = Employee_Display()
         # do database operations and create context
-        return render(request,"users/dashboard.html", {'output':output})
+        return render('/employeeList')
     
 from django.shortcuts import render,redirect
 from django.contrib import messages
@@ -77,7 +81,6 @@ def profile(request):
 		'p_form':p_form
 	}
 	return render(request,'users/profile.html',context)    
-
 
 class StudentListView(ListView):
     model=Student
@@ -119,3 +122,17 @@ def pie_chart(request):
         'labels': labels,
         'data': data,
     })
+def drag_drop(request):
+    if request.method == 'POST' and request.FILES['myfile']:
+        myfile = request.FILES['myfile']
+        fs = FileSystemStorage(location=settings.MEDIA_ROOT)
+        filename = fs.save(myfile.name, myfile)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'users/upload.html', {'uploaded_file_url': uploaded_file_url,"fileupload":"File uploaded successfully"})
+    if request.method == 'GET':
+        return render(request, 'users/upload.html')
+
+class EmployeeListView(ListView):
+    model=Student
+    context_object_name='students'
+    template_name='users/employeeList.html'
