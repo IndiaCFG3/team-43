@@ -25,7 +25,9 @@
 		      <div class="collapse navbar-collapse" id="navbarToggle">
 		        <div class="navbar-nav mr-auto">
 		          <a class="nav-item nav-link" href="#">Home</a>
-		          <a class="nav-item nav-link" href="#">About Us</a>
+		          <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+				<a class="nav-item nav-link" href="{% url 'upload' %}">Upload CSV</a>
+
         <h6 class="nav-item nav-link"> You have been logged in as {{user.email}}</h6>
 		        </div>
 		        <!-- Navbar Right Side -->
