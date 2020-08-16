@@ -23,11 +23,12 @@
 		      <span class="navbar-toggler-icon"></span>
 		      </button>
 		      <div class="collapse navbar-collapse" id="navbarToggle">
-		        <div class="navbar-nav mr-auto">
+		        <div class="navbar-nav">
 		          <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
 		          <a class="nav-item nav-link" href="{% url 'dashboard' %}">Dashboard</a>
 				<a class="nav-item nav-link" href="{% url 'upload' %}">Upload CSV</a>
 				<a class="nav-item nav-link" href="{% url 'test' %}">CSV to DB</a>
+				<a class="nav-item nav-link" href="{% url 'pie-chart' %}">Visual</a>
 
         <h6 class="nav-item nav-link"> You have been logged in as {{user.email}}</h6>
 		        </div>
@@ -45,6 +46,42 @@
 		    </div>
 		  </nav>
 	</header>
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Submit us our feedback</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	<div>
+	<p class="container">
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			Click to know more about us!!!
+		</button>
+		<a class="btn btn-primary" type="button" href="{% url 'pie-chart' %}">
+			View Visual Representation
+		</a>
+	</p>
+		<div class="container collapse" id="collapseExample">
+			<div class="jumbotron">
+			<h1 class="display-5">YUVA PARIVARTAN</h1>      
+			<hr class="my-4">
+			<p class="lead">With a firm belief in giving a SECOND CHANCE we are here to make a difference to the society and strive for a better tomorrow and a better India. Together, we are YUVA PARIVARTAN. </p>
+			</div>
+
+    
+		</div>
     <div class="container">
     {% block content %}
     {% endblock %}

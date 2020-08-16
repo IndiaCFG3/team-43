@@ -39,9 +39,9 @@ def dashboard(request):
     if request.user.profile.usertype == 'admin':
         # do database operations and create context
         return redirect('/studentList')
-    if request.user.profile.usertype == 'HR':
+    if request.user.profile.usertype == 'hr':
         # do database operations and create context
-        return render('/employeeList')
+        return redirect('/employeeList')
     
 from django.shortcuts import render,redirect
 from django.contrib import messages
@@ -142,12 +142,12 @@ def email_sender(request):
 			message='Here is the message.',
 			from_email= '',
 			recipient_list=['sarika.s2407@gmail.com'],
-			fail_silently=False,
+			fail_silently=True,
 			auth_password=''
 		)
 		print(flag)
 	except BadHeaderError:
             return HttpResponse('Invalid header found.')
     
-	return HttpResponseRedirect('/dashboard')
+	return HttpResponseRedirect('dashboard')
     
