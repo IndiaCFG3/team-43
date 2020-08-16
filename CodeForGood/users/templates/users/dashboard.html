@@ -1,5 +1,7 @@
 {% extends "users/base.html" %}
 {% load crispy_forms_tags %}
+{% block content %}
 <div>
-    {output.as_table}
+    {{output.as_table}}
 </div>
+{% endblock content %}

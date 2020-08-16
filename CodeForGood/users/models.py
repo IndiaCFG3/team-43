@@ -20,7 +20,6 @@ class Student(models.Model):
 class BatchStudent(models.Model):
     # student_id = models.OneToOneField(Student, on_delete= models.CASCADE)
     student_id = models.IntegerField()
-
     batch_id =  models.CharField(max_length = 10)
 
 class Employee(models.Model):
