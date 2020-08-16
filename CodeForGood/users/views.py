@@ -11,6 +11,11 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.core.mail import send_mail
 
+
+def home(request):
+    return render(request,'users/home.html')
+
+
 # Create your views here.
 def test_view(request):
     flag = db_save()
@@ -132,6 +137,7 @@ class EmployeeListView(ListView):
     context_object_name='students'
     template_name='users/employeeList.html'
 
+<<<<<<< HEAD
 def email_sender(request):
 	try:
 		flag = send_mail(
@@ -147,3 +153,6 @@ def email_sender(request):
             return HttpResponse('Invalid header found.')
     
 	return HttpResponseRedirect('/dashboard')
+=======
+    
+>>>>>>> 339ea4d32c06b0c00d1e33e10c47e3989d9c64dc
