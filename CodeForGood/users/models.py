@@ -18,7 +18,7 @@ class Student(models.Model):
     performance = models.TextField()
 
 class BatchStudent(models.Model):
-    student_id = models.OneToOneField(Student)
+    student_id = models.OneToOneField(Student,on_delete=models.CASCADE)
     batch_id =  models.CharField(max_length = 10)
 
 class Employee(models.Model):
