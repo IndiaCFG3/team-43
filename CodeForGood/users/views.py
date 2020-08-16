@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
 from .models import *
 from django.views.generic import ListView
+from django.shortcuts import render
 
 
 # Create your views here.
@@ -82,3 +83,39 @@ class StudentListView(ListView):
     model=Student
     context_object_name='students'
     template_name='users/studentList.html'
+
+def home(request):
+    return render(request, 'users/barchart.html')
+
+def score_chart(request):
+    labels = []
+    data = []
+
+    queryset = Student.objects.all()
+    for entry in queryset:
+        labels.append(entry.student_id)
+        data.append(entry.score)
+    # return render(request,'users/barchart.html',context={'labels': labels, 'data': data}) 
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+    })
+
+# def chart_view(request):
+# 	return render(request, 'users/barchart.html')
+
+from django.shortcuts import render
+
+def pie_chart(request):
+    labels = []
+    data = []
+
+    queryset = Student.objects.all()
+    for entry in queryset:
+        labels.append(entry.student_id)
+        data.append(entry.score)
+
+    return render(request, 'pie_chart.html', {
+        'labels': labels,
+        'data': data,
+    })
