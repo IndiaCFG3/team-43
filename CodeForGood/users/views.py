@@ -140,10 +140,10 @@ def email_sender(request):
 		flag = send_mail(
 			subject='Your PDF!',
 			message='Here is the message.',
-			from_email= '',
+			from_email= 'team43cfg@yahoo.com',
 			recipient_list=['sarika.s2407@gmail.com'],
 			fail_silently=True,
-			auth_password=''
+			auth_password='katsura43'
 		)
 		print(flag)
 	except BadHeaderError:
